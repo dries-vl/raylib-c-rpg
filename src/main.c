@@ -6,7 +6,7 @@ int main() {
 
     InitWindow(screenWidth, screenHeight, "Raylib 2D Shader Example");
 
-    Shader shader = LoadShader("vert_shader.vert", "frag_shader.frag");
+    Shader shader = LoadShader("shaders/vert_shader.vert", "shaders/frag_shader.frag");
     SetTargetFPS(60);
 
     Rectangle rec = { screenWidth/2 - 50, screenHeight/2 - 50, 100, 100 };
@@ -15,7 +15,6 @@ int main() {
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
-        DrawRectangleRec(rec, RED);
         BeginShaderMode(shader);
         DrawRectangleRec(rec, RED);
         EndShaderMode();
