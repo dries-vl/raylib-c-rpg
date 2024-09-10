@@ -11,9 +11,19 @@ int main() {
 
     Rectangle rec = { screenWidth/2 - 50, screenHeight/2 - 50, 100, 100 };
 
+    // Load texture for the sprite
+    Texture2D texture = LoadTexture("test.png");
+    
+    // Define the position where you want to draw the sprite
+    Vector2 position = {0, 0};
+        
+
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(RAYWHITE);
+
+        // Draw the sprite
+        DrawTextureV(texture, position, WHITE);
 
         BeginShaderMode(shader);
         DrawRectangleRec(rec, RED);
@@ -24,6 +34,7 @@ int main() {
         EndDrawing();
     }
 
+    UnloadTexture(texture);
     UnloadShader(shader);
     CloseWindow();
 
